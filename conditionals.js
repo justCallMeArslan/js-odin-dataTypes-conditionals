@@ -77,6 +77,68 @@ null === +"\n0\n"; //false
 
 
 
+//There are 4 logical operators || (OR), && (AND), ! (NOT), ?? (Nullish Coalescing).
+
+
+// || (OR) 
+
+
+console.log(true || true); //true
+console.log(false || true); //true
+console.log(true || false); //true
+console.log(false || false); //false
+
+//if operand is not boolean, its converted to a boolean for the evaluation
+
+if (1 || 0) {  //works the same way as if (true || false)
+    console.log("truthy!"); // truthy
+};
+
+let hour = 9;
+if (hour < 10 || hour > 18) { //used to check if statement is true and if true prints a message
+    console.log("The office is closed"); // true; The office is closed.
+}
+
+let workingHour = 12;
+let isWeekend = true; // this variable should have a function determining correct day to pass true or false
+if(workingHour < 10 || hour > 18 || isWeekend) {
+    console.log(" The shop is closed"); //true, The shop is closed.
+}
+
+
+//JavaScript (OR) features
+
+//result = value1 || value2 || value3, so the OR || operator does the following:
+// - evaluates operands from left to right
+// - for each operand,converts it to boolean, if result is true, stops and returns the original value
+// - if all operands have been evaluated (i.e all were false), returns the last operannd
+// when value returns - its returned in its original form, without the conversion.
+
+console.log( 1 || 0 ); // 1 (1 is truthy)
+console.log( null || 1); // 1 (1 is the first truthy value);
+console.log( null || 0 || 1 ); // 1 (the first truthy value);
+console.log( undefined || null || 0); // 0 (all falsy, returns the last value);
+
+//this features give us an interesting usage:
+// a) getting the first truthy value from a list of variables or expresions
+
+let firstName = "";
+let lastName = "";
+let nickName = "CuttiePatootie";
+
+console.log(firstName || "SweetieAprechot" || lastName || nickName || "Anonymous"); //"SweetyAprechot" is
+// first truthy value and result
+console.log(firstName || null || lastName || undefined || nickName || "Sweetie Aprechot" || "Anonymous");
+// nickName and its value is a result , as its a first truthy value
+
+// b) "short-circuit" evaluation
+
+true || console.log("not printed"); // result won't be printed because of "short-circuit" evaluation,
+// because || processes its arguments and as soon as true comes - immediately returns value, without even
+// touching the other argument 
+false || console.log("printed"); // result is printed, because false is omitted, so || proceeds to next
+// argument and returns it
+
 
 
 
