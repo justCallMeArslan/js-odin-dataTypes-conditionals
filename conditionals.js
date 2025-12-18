@@ -101,12 +101,12 @@ if (hour < 10 || hour > 18) { //used to check if statement is true and if true p
 
 let workingHour = 12;
 let isWeekend = true; // this variable should have a function determining correct day to pass true or false
-if(workingHour < 10 || hour > 18 || isWeekend) {
+if (workingHour < 10 || hour > 18 || isWeekend) {
     console.log(" The shop is closed"); //true, The shop is closed.
 }
 
 
-//JavaScript (OR) features
+//JavaScript related (OR) features
 
 //result = value1 || value2 || value3, so the OR || operator does the following:
 // - evaluates operands from left to right
@@ -114,10 +114,10 @@ if(workingHour < 10 || hour > 18 || isWeekend) {
 // - if all operands have been evaluated (i.e all were false), returns the last operannd
 // when value returns - its returned in its original form, without the conversion.
 
-console.log( 1 || 0 ); // 1 (1 is truthy)
-console.log( null || 1); // 1 (1 is the first truthy value);
-console.log( null || 0 || 1 ); // 1 (the first truthy value);
-console.log( undefined || null || 0); // 0 (all falsy, returns the last value);
+console.log(1 || 0); // 1 (1 is truthy)
+console.log(null || 1); // 1 (1 is the first truthy value);
+console.log(null || 0 || 1); // 1 (the first truthy value);
+console.log(undefined || null || 0); // 0 (all falsy, returns the last value);
 
 //this features give us an interesting usage:
 // a) getting the first truthy value from a list of variables or expresions
@@ -140,5 +140,96 @@ false || console.log("printed"); // result is printed, because false is omitted,
 // argument and returns it
 
 
+// && AND 
+
+console.log(true && true); // true
+console.log(false && true); // false
+console.log(true && false); // false 
+console.log(false && false); // false
+
+let hour1 = 12;
+let minute = 30;
+
+if (hour1 == 12 && minute == 30) {
+    console.log("The time is 12:30"); //true && true, results in printing out value given in .log
+}
+
+if (1 && 0) { // evaluated as true && false, it returns as false and value given in .log wont be printed
+    console.log("won't work, because the result is falsy");
+}
+
+//result = value1 || value2 || value3, so the AND && operator does the following:
+// - evaluates operands from left to right
+// - for each operand,converts it to boolean, if result is false, stops and returns the original value of operand
+// - if all operands have been evaluated (i.e all were true), returns the last operannd
+// AND returns the first falsy value or the last value if none were found
+
+console.log(1 && 0); // returns 0, true && false returns false
+console.log(1 && 5); // retunrs 5, true && false returns false
+
+//same as in || OR , && AND operator check for falsy arguments, and when found, it ignores other argument:
+
+console.log(null && 5); //null, as null considered as false
+console.log(0 && "no matter what"); // 0
+console.log(1 && 2 && null && 4); //null as first falsy value
+console.log(1 && 2 && 3); // 3, as all values are true, last one is returned
+
+
+// Precedence of AND && is higher than OR || (&& > ||);
+
+
+// ! NOT
+
+//result = !value;
+
+//The operator accepts a single argument and does the following:
+// - converts the operand to boolean type: true/false.
+// - returns the inverse value
+
+console.log(!true); // false
+console.log(!0); // true
+
+// A double NOT !! is sometimes used to convert a value to boolean type:
+
+console.log(!!"non empty string"); // true
+console.log(!!null); //false
+//basically process is simple, first ! inverts value into boolean, and second ! inverts boolean to 
+// correct boolean value of initial operand:
+// !!null == ( !null -> true; !true ==) false;
+
+// function Boolean == !!
+
+console.log(Boolean("non-empty-string")); // true
+console.log(Boolean(null)); //false
+
+
+
+// Tasks
+
+console.log(null || 2 && 3 || 4); // precedence takes place so 2 && 3, going to be first to evaluate,
+// it will return 3, as both are true and in that case && give the last operand, which is 3.
+// equation turns into null || 3 || 4 , || searches from left to right for truthy value, which is 3.
+
+
+// Write an if condition to check that age is between 14 and 90 inclusively, means that age can reach 
+// the edges 14 or 90, assign random values for age variable:
+
+let age = 12 || Math.floor(Math.random() * 100);
+
+if (age >= 14 && age <= 90) {
+    console.log("You are still pretty young");
+} else {
+    console.log("We can't let you in");
+}
+
+//Write an if condition to check that age is NOT between 14 and 90 inclusively. Create two variants: 
+// the first one using NOT !, the second one – without it.
+
+if (!(age >= 14 && age <= 90)){
+console.log("Too young or too old");}
+
+if(age < 14 || age > 90){
+    console.log("Too old or too young");
+}
 
 
