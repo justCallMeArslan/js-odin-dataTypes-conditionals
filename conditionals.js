@@ -324,3 +324,25 @@ let company = console.log("Which company created JavaScript?", ""); //should be 
 // the purpose of if construct to execute different branches of code, so no need to mix things upside down.
 
 
+
+//The "switch" statement
+
+// A switch can replace multiple if checks, which gives a more descriptive waay to compare a value with 
+// multiple variants.
+
+// the syntax
+// the switch has one or more case blocks and an optional default:
+
+switch (x) { //value x is going to be checked for strict equality
+    case "value1": // if (x === "value1")
+        console.log(); //some code which need to be executed if value1 is true, until break or end of switch
+        break;
+    case "value2": // if (x === "value2")
+        console.log(); //some code which need to be executed if value2 is true, until break or 
+        break;
+
+    default: // in no case is matched then the default is executed
+        console.log(); // some code which need to be executed in case both value1 and value 2 are false
+        break;
+}
+
