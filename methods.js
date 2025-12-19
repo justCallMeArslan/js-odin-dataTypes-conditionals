@@ -88,8 +88,8 @@ console.log(text7); // hello world
 let abc = "Hello World";
 let result = abc.isWellFormed(); //method that check either string has lone surrogates or not
 console.log(result); // true
-
 //lone surrogates is 1 out of 2 parts of pair surrogate (which is UTF-16 required feature to acquire more code points for larger parts)
+
 let cba = "Hello World \uD800";
 let res = cba.isWellFormed();
 console.log(res); // false
@@ -118,8 +118,8 @@ console.log(result4); //              Hello World
 
 
 const str = "5";
-const padding = str.padStart(5, "*"); // method takes 2 values (a , b), where a length of desired new string 
-// and b which is the way how padding will be filled
+const padding = str.padStart(5, "*"); // method takes 2 values (a , b), where "a" is a length of desired 
+// new string and "b" is the way how padding will be filled
 console.log(padding); // ****5 
 
 const str3 = "239000996548";
@@ -130,8 +130,8 @@ console.log(maskedNumber); //********6548
 //in order to pad number we need to convert it to string (String())
 
 const str4 = "Beautiful smile";
-const padding2 = str4.padEnd(30, "."); //works the same as padStart(), but adds specified padding to the end of 
-//the string
+const padding2 = str4.padEnd(30, "."); //works the same as padStart(), but adds specified padding to the 
+// end of the string
 console.log(padding2); // Beautiful smile...............
 
 const str5 = "Lorem ipsum dolor aitus benitus covim sador";
@@ -177,12 +177,13 @@ console.log(replacement2); //I think trees greener on the other side. Yeah, tree
 
 const str6 = "The slow green turtle jumps over lazy elephant";
 
-const words = str6.split(" "); // method turns string into array, which can differ in accordance with separator 
-// type. Separator " " returns words as arrays
+const words = str6.split(" "); // method turns string into array, which can differ in accordance with 
+// separator type. Separator " " returns words as arrays
 console.log(words); // ['The', 'slow', 'green', 'turtle', 'jumps', 'over', 'lazy', 'elephant']
 
 const characters = str6.split(""); // separator "" returns letters as arrays
 console.log(characters[19]); //l
 
-const strCopy = str6.split(); // empty separator copies initial strings and turns it to array with string inside
-console.log(strCopy); //
+const strCopy = str6.split(); // empty separator copies initial strings and turns it to array with 
+// string inside
+console.log(strCopy); // [ The slow green turtle jumps over lazy elephant ]

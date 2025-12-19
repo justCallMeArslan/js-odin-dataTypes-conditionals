@@ -51,25 +51,13 @@ console.log("" === false); // false, cause string != boolean. this check is stri
 console.log(null == undefined); //true, as their values equal to each other
 console.log(null === undefined); // false, as their values are equal, but types are different
 
-console.log(null > 0); //false, cause null converts to zero and 0 !> 0, but 0 = 0
+console.log(null > 0); //false, cause null converts to zero and 0 !> 0
 console.log(null == 0); // false , cause null == undefined and nothing else
 console.log(null >= 0); // true, cause 0 = 0, as >= or == work differently
 
-console.log(undefined > 0); // false, cause undefined = NaN,special numeric value which returns false for all comparisons
-console.log(undefined < 0); // false, cause undefined = NaN,special numeric value which returns false for all comparisons
+console.log(undefined > 0); // false, cause undefined is NaN,special numeric value which returns false for all comparisons
+console.log(undefined < 0); // false, cause undefined is NaN,special numeric value which returns false for all comparisons
 console.log(undefined == 0); // false, cause undefined == null and nothing else
-
-
-
-5 > 4; //true 
-"apple" > "pineapple"; //false
-"2" > "12"; // true
-undefined == null; // true
-undefined === null; //false 
-null == "\n0\n"; //false
-null === +"\n0\n"; //false
-
-
 
 
 
@@ -102,7 +90,8 @@ if (hour < 10 || hour > 18) { //used to check if statement is true and if true p
 let workingHour = 12;
 let isWeekend = true; // this variable should have a function determining correct day to pass true or false
 if (workingHour < 10 || hour > 18 || isWeekend) {
-    console.log(" The shop is closed"); //true, The shop is closed.
+    console.log(" The shop is closed"); //true, The shop is closed. True only because isWeekn stated
+    // to be true. So its basically false || false || true.
 }
 
 
@@ -111,7 +100,7 @@ if (workingHour < 10 || hour > 18 || isWeekend) {
 //result = value1 || value2 || value3, so the OR || operator does the following:
 // - evaluates operands from left to right
 // - for each operand,converts it to boolean, if result is true, stops and returns the original value
-// - if all operands have been evaluated (i.e all were false), returns the last operannd
+// - if all operands have been evaluated (i.e all were false), returns the last operand
 // when value returns - its returned in its original form, without the conversion.
 
 console.log(1 || 0); // 1 (1 is truthy)
@@ -204,32 +193,134 @@ console.log(Boolean(null)); //false
 
 
 
-// Tasks
-
-console.log(null || 2 && 3 || 4); // precedence takes place so 2 && 3, going to be first to evaluate,
-// it will return 3, as both are true and in that case && give the last operand, which is 3.
-// equation turns into null || 3 || 4 , || searches from left to right for truthy value, which is 3.
+//Conditional branching: if, "?"
 
 
-// Write an if condition to check that age is between 14 and 90 inclusively, means that age can reach 
-// the edges 14 or 90, assign random values for age variable:
+// basic exmple of if () statement
 
-let age = 12 || Math.floor(Math.random() * 100);
+let question = console.log("Are you a human?", ""); //should be propmt, but replaced for reduced pop-ups
+if (question == "Yes") {
+    alert("Hello Wolrd");
+}
 
-if (age >= 14 && age <= 90) {
-    console.log("You are still pretty young");
+
+// Boolean conversion
+
+// if (...) statement evaluates the expresion in its parentheses and converts the result to a boolean.
+// if value or expression in parentheses resulted as falsy - nothing is executed:
+
+if (0) { // 0, "", null, undefined and NaN are all falsy values, so nothing will execute
+
+}
+
+// if value or expression in parentheses are truthy - action executed:
+
+if (1) { // any results except 0, "", undefined, null, NaN will be considered as true and execute
+
+}
+
+
+//The "else" clause
+
+// else is optional block which executes when condition is falsy:
+
+let question1 = console.log("Are you a human?", ""); //should be propmt, but replaced for reduced pop-ups
+if (question1 == "Yes") {
+    alert("Hello Wolrd");
 } else {
-    console.log("We can't let you in");
+    console.log("Cyborg! Run!"); //should be alert,but too annoying
 }
 
-//Write an if condition to check that age is NOT between 14 and 90 inclusively. Create two variants: 
-// the first one using NOT !, the second one – without it.
 
-if (!(age >= 14 && age <= 90)){
-console.log("Too young or too old");}
+// Severeal conditions:"esle if"
 
-if(age < 14 || age > 90){
-    console.log("Too old or too young");
+// whenever we need to test several variants of condition, we use esle if clause: 
+
+let question2 = console.log("Are you a human?", ""); //should be propmt, but replaced for reduced pop-ups
+if (question2 == "Yes") {
+    alert("Hello Wolrd");
+} else if (question2 == "Maybe") { //if first expression resulted as false we can do another check
+    alert("Reconsider and come again");
+} else {
+    console.log("Cyborg! Run!"); //should be alert, but too annoying
 }
+
+//there can be more "else if", and the last "else" is optional.
+
+
+
+//Conditional operator "?"
+
+
+//sometimes we need to assign a variable depending on a condition:
+
+let accessAllowed;
+let age = console.log("How old are you", ""); //should be prompt
+
+if (age > 18) {
+    accessAllowed = true;
+} else {
+    accessAllowed = false;
+}
+console.log(accessAllowed);
+
+
+//the same check can be done in simplier way with "conditional" or "question mark" operator.
+
+let accessAllowed1 = age > 18 ? true : false;
+
+//general syntax is:
+
+// let result = ( condition ) ? value1 : value2; // condition is evaluated: if its truthy then value1 is returned,
+// otherwise - value2.
+
+// the operator is represented by question mark ? (ternary, called so because operator has three operands.
+
+
+
+//Multiple "?"
+
+// a sequence of question mark operators ? can return a value that depends on more than one condition:
+
+
+let growthness = console.log("Your age?", "");
+
+let message = (growthness < 3) ? "Hi, Baby" :
+    (growthness < 18) ? "Hello" :
+        (growthness < 100) ? "Greetings" :
+            "What an unusual age!";
+
+console.log(message);
+
+// in if expresion it will look as following:
+
+let age1 = console.log("Your age?", ""); //should be prompt
+
+if (age1 >= 0.1 && age1 <= 3) {
+    alert("Hi, baby");
+} else if (age1 > 3 && age1 <= 18) {
+    alert("Hello");
+} else if (age1 > 18 && age1 < 100) {
+    alert("Greetings");
+} else {
+    console.log("What an unsual age"); //should be alert, but too annoying
+}
+
+
+
+//Non - traditional use of "?"
+
+
+//sometimes the question mark ? is used as a replacement for if:
+
+let company = console.log("Which company created JavaScript?", ""); //should be prompt 
+
+//(company == "Netscape") ? alert("Right") : alert ("Wrong"); should be uncommented
+
+//its not recommended to use ? this way as its less readable, even statement shorter.
+
+//the purpose of the question mark ? operator is to return one value or another depending on its condition,
+// so its better to use it for the purpose. 
+// the purpose of if construct to execute different branches of code, so no need to mix things upside down.
 
 
