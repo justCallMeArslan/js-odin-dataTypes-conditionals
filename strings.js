@@ -31,7 +31,7 @@ console.log(joined);
 
 const greeting2 = "Hello";
 const name2 = "Bobby";
-const joined2 = greeting2 + ", " + name2
+const joined2 = greeting2 + ", " + name2;
 console.log(joined2);
 
 // option with template literals :

@@ -333,16 +333,93 @@ let company = console.log("Which company created JavaScript?", ""); //should be 
 // the syntax
 // the switch has one or more case blocks and an optional default:
 
-switch (x) { //value x is going to be checked for strict equality
-    case "value1": // if (x === "value1")
-        console.log(); //some code which need to be executed if value1 is true, until break or end of switch
-        break;
-    case "value2": // if (x === "value2")
-        console.log(); //some code which need to be executed if value2 is true, until break or 
-        break;
+// switch (x) { //value x is going to be checked for strict equality
+//     case "value1": // if (x === "value1")
+//         console.log(); //some code which need to be executed if value1 is true, until break or end of switch
+//         break;
+//     case "value2": // if (x === "value2")
+//         console.log(); //some code which need to be executed if value2 is true, until break or 
+//         break;
 
-    default: // in no case is matched then the default is executed
-        console.log(); // some code which need to be executed in case both value1 and value 2 are false
+//     default: // in no case is matched then the default is executed
+//         console.log(); // some code which need to be executed in case both value1 and value 2 are false
+//         break;
+// }
+
+
+let a = 5 + 5;
+switch (a) { // equals to if (x ==)
+    case 8:
+        console.log("Too small ");
         break;
+    case 10:
+        console.log("Exactly");
+        break;
+    case 12:
+        console.log("Too big");
+        break;
+    default:
+        console.log("I dont know such values");
 }
 
+
+//both switch and case allow arbitrary expressions:
+
+// let z = "1";
+// let x = 0;
+
+// switch (+z) {
+//     case x + 1;
+//         console.log("this runs, because +a is 1, exactly what b + 1");
+//         break;
+
+//     default:
+//         console.log("Go learn basics");
+
+// }
+
+
+
+// Grouping of "case"
+
+//several variants of case which share the same code can be grouped.
+
+//for example, if we want the same code to run for case 3 and case 5:
+
+let q = 3;
+
+switch (q) {
+    case 4:
+        console.log("Right");
+    case 3:
+    case 5:
+        console.log("Wrong");
+        console.log("Why dont you take a math class?");
+        break;
+
+    default:
+        console.log("The result is strange. Really");
+}
+
+
+// Type matters
+
+// equality check is always strict. The values must be of the same type to match.
+
+let arg = prompt("Enter a value?", 0); 
+
+switch (arg) {
+    case "0":
+    case "1":
+        console.log("One or zero");
+        break;
+    case String(3):
+        console.log("Correct");
+        break;
+    case 2:
+        console.log("Never executes");
+        break;
+    default:
+        console.log("An unknown value");
+    
+}
